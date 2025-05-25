@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shivam Dhotre</title>
+    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700|Oswald:400,500,700&display=swap"
+        rel="stylesheet" />
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <style>
+        :root {
+            --brand-color: #007bff;
+            --bg-light-gray: #f8f9fa;
+            --deep-dark: #23272b;
+            --main-text: #343a40;
+            --muted-text: #6c757d;
+            --white: #fff;
+            --transition: 0.3s cubic-bezier(.4, 0, .2, 1);
+        }
+
+        html,
+        body {
+            font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
+            background: var(--bg-light-gray);
+            color: var(--main-text);
+            scroll-behavior: smooth;
+        }
+
+        .navbar {
+            background: var(--white) !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+            letter-spacing: .5px;
+        }
+
+        .navbar-brand {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.1rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            color: var(--brand-color);
+        }
+
+        .nav-link {
+            font-weight: 600;
+            transition: color var(--transition);
+            color: var(--main-text) !important;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--brand-color) !important;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(110deg, #e9ecef 60%, #cbe1fd 100%);
+            padding: 7rem 0 6rem 0;
+            text-align: center;
+            position: relative;
+        }
+
+        /* .profile-image {
+            width: 190px;
+            height: 190px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid var(--white);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+            margin-bottom: 2rem;
+        } */
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-headline {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: var(--deep-dark);
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--muted-text);
+            font-weight: 500;
+            margin-bottom: 2.2rem;
+        }
+
+        .btn-primary {
+            background: var(--brand-color);
+            border: none;
+            font-weight: 700;
+            padding: 0.9rem 2.5rem;
+            font-size: 1.1rem;
+            letter-spacing: .5px;
+            border-radius: 26px;
+            transition: background var(--transition), box-shadow var(--transition);
+            box-shadow: 0 3px 12px rgba(50, 122, 255, 0.06);
+        }
+
+        .btn-primary:hover,
+        .btn-primary:focus {
+            background: #0056b3;
+        }
+
+        /* Section Heading */
+        .section-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--deep-dark);
+            letter-spacing: 1px;
+        }
+
+        /* About */
+        .about-section {
+            padding: 4.2rem 0 2.2rem 0;
+        }
+
+        .about-text {
+            font-size: 1.13rem;
+            color: var(--main-text);
+            margin-bottom: 1.2rem;
+        }
+
+        /* Projects */
+        .container1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Card Container Styles */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            max-width: 1200px;
+            gap: 20px;
+            padding-bottom: 20px;
+        }
+
+        /* Card Styles */
+        .card1 {
+            width: calc(33.33% - 20px);
+            max-width: 400px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            /* Add flexbox */
+            flex-direction: column;
+            /* Stack header and body vertically */
+        }
+
+        .card1:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Card Header Styles */
+        .card-header1 {
+            background-color: #3498db;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .card-header1:hover {
+            background-color: #2980b9;
+        }
+
+        /* Card Body Styles */
+        .card-body1 {
+            padding: 20px;
+            display: none;
+            font-size: 1em;
+            line-height: 1.6;
+            flex-grow: 1;
+            /* Allow body to take up remaining space */
+        }
+
+        .card1.active .card-body1 {
+            display: block;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .card1 {
+                width: calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .card1 {
+                width: 100%;
+            }
+        }
+
+        /* Added a style for the link within the card body */
+        .card-body1 a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .card-body1 a:hover {
+            text-decoration: underline;
+        }
+
+        /* Skills */
+        .skills-section {
+            background: var(--bg-light-gray);
+            padding: 4.5rem 0 3rem 0;
+        }
+
+        .skill-item h6 {
+            font-family: Oswald, sans-serif;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .skill-bar {
+            position: relative;
+            width: 100%;
+            background: #e9ecef;
+            height: 23px;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 22px;
+        }
+
+        .skill-progress {
+            background: linear-gradient(90deg, #3386f2 0%, var(--brand-color) 90%);
+            height: 100%;
+            width: 0;
+            color: var(--white);
+            font-weight: 700;
+            font-size: .9rem;
+            border-radius: 20px;
+            transition: width 1.2s cubic-bezier(.6, 0, .4, 1);
+            position: relative;
+        }
+
+        .skill-progress::after {
+            content: attr(data-width) '%';
+            position: absolute;
+            right: 16px;
+            top: 3px;
+            color: #fff;
+            font-size: .97em;
+            font-weight: bold;
+        }
+
+        /* Experience */
+        #Work-Experience .card {
+            border-radius: 16px;
+            border: none;
+            box-shadow: 0 2px 14px 0 rgba(100, 100, 100, 0.05);
+            margin-top: 2rem;
+        }
+
+        #Work-Experience .section-title {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        /* Education */
+        #Education .card {
+            border-radius: 18px;
+            border: none;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 10px 0 rgba(150, 150, 150, 0.06);
+            min-height: 170px;
+        }
+
+        /* Contact */
+        #Contact {
+            background: linear-gradient(90deg, #cbe1fd 0%, #fff 100%);
+            padding: 5rem 0 3.5rem 0;
+        }
+
+        .contact-wrapper {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1100px;
+            margin: 0 auto;
+            gap: 2.7rem;
+            flex-wrap: wrap;
+        }
+
+        .form-horizontal {
+            width: 55%;
+            min-width: 320px;
+            background: var(--white);
+            padding: 2rem 2.2rem 1.7rem 2.2rem;
+            box-shadow: 0 1px 10px 0 rgba(110, 110, 200, 0.06);
+            border-radius: 18px;
+        }
+
+        .form-group {
+            margin-bottom: 19px;
+        }
+
+        .form-control {
+            font-size: 1rem;
+            padding: 12px 16px;
+            border-radius: 8px;
+            border: 1px solid #ced4da;
+        }
+
+        .form-control:focus {
+            border-color: var(--brand-color);
+            box-shadow: 0 0 5px 0 rgba(0, 123, 255, 0.23);
+        }
+
+        .direct-contact-container {
+            width: 39%;
+            min-width: 270px;
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: flex-start;
+        }
+
+        .contact-list {
+            list-style: none;
+            padding: 0 0 .6rem 0;
+        }
+
+        .list-item {
+            font-size: 1.08rem;
+            margin-bottom: .8rem;
+        }
+
+        .list-item a {
+            color: var(--brand-color);
+            margin-right: 5px;
+            gap: 5px;
+        }
+
+        .contact-text {
+            margin-left: 12px;
+            letter-spacing: 0.3px;
+        }
+
+        .contact-text a {
+            color: var(--brand-color);
+            text-decoration: none;
+        }
+
+        .contact-text a:hover {
+            color: #0056b3;
+        }
+
+        .social-media-list {
+
+            list-style: none;
+            padding: 0;
+            display: flex;
+            margin-top: 18px;
+            gap: 15px;
+        }
+
+        .social-media-list li a {
+            color: #fff;
+            background: #343a40;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 18px;
+            transition: background var(--transition), color var(--transition);
+        }
+
+        .social-media-list li a:hover {
+            background: var(--brand-color);
+            color: #fff;
+            transform: translateY(-2px) scale(1.09);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .contact-wrapper {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .form-horizontal,
+            .direct-contact-container {
+                width: 100%;
+                min-width: unset;
+            }
+
+            .direct-contact-container {
+                margin-top: 28px;
+                align-items: center;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .navbar-brand {
+                font-size: 1.3rem;
+            }
+
+            .hero-headline {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .form-horizontal {
+                padding: 1.4rem .8rem;
+            }
+
+            .direct-contact-container {
+                font-size: .93rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .profile-image {
+                width: 120px;
+                height: 120px;
+            }
+
+            .hero-headline {
+                font-size: 1.1rem;
+            }
+        }
+
+
+        #button1 {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            text-decoration: none;
+        }
+
+        #button1:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer Styling */
+        footer {
+            background: var(--deep-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: auto;
+            /* Push footer to the bottom */
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--brand-color);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#hero">Shivam Dhotre</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse pt-2 pt-lg-0" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="#about">About</a></li> -->
+                    <li class="nav-item"><a class="nav-link" href="#Projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#Skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#Work-Experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#Education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#Contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="container">
+            <img src="assets/WhatsApp Image 2025-05-06 at 12.50.56 PM.jpeg" alt="Shivam Dhotre Profile Picture"
+                class="profile-image shadow" />
+            <h1 class="hero-headline">Hi, I'm Shivam Dhotre</h1>
+            <p class="hero-subtitle">I'm a <span id="typed-role"></span></p>
+            <a href="#Contact" class="btn btn-primary shadow mt-1">Get in Touch</a>
+        </div>
+    </section>
+    <!-- About Section -->
+
+    <!-- <button href="#hero" class="sticky-button">Click Me</button> -->
+    <a id="button1" href="#hero" class="sticky-button"><i class="fa-solid fa-arrow-up fa-beat-fade"></i>
+        Back to Top</a>
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <p class="about-text">
+                I’m Shivam Dhotre, a passionate and curious software developer with a strong foundation in cloud
+                computing, DevOps, and full-stack development. I recently completed my B.E. in Engineering from Ramrao
+                Adik Institute of Technology, Navi Mumbai, with a consistent academic performance and a CPI of 7.98.
+            </p>
+            <p class="about-text">
+                My journey in tech has been driven by a hands-on, project-based approach to learning. I’ve developed
+                real-world projects—from a YouTube spam detection system using machine learning, to a Netflix clone
+                orchestrated with Kubernetes, and even AI-powered Telegram chatbots. These projects sharpened my skills
+                in Python, cloud architecture, containerization, and front-end technologies.
+            </p>
+            <p class="about-text">
+                At AI Dyma Pvt. Ltd., I gained hands-on experience with AWS services, Docker, Kubernetes, and building
+                CI/CD pipelines. I contributed to UI development, deployment, and designed artifacts with Figma and
+                Canva, blending technical execution with design thinking.
+            </p>
+            <p class="about-text">
+                I'm an IEEE conference author (ICAST-2023), presenting Ensemble Learning for YouTube Spam Detection,
+                showing my analytical and research interests.<br />
+                I’m driven by challenges and love to work with cloud, DevOps, and full-stack technologies. Fluent in
+                Marathi, Hindi, English, and Telugu—I collaborate cross-culturally with ease.
+            </p>
+        </div>
+    </section>
+    <!-- Projects Section -->
+    <section id="Projects" class="py-5">
+        <div class="container">
+            <h2 class="section-title"> Projects</h2>
+            <div class="container1">
+                <div class="card-container">
+                    <!-- Card 1 -->
+                    <div class="card1" data-card-id="1">
+                        <div class="card-header1">Travel Website</div>
+                        <div class="card-body1">
+                            <p>A responsive travel website developed using HTML, CSS, and JavaScript, incorporating
+                                Bootstrap for enhanced styling and responsiveness. Focuses on user-friendly design and
+                                easy navigation.</p>
+                            <a href="https://shivamdhotre.github.io/Travel-Website/" target="_blank">View Project</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="card1" data-card-id="2">
+                        <div class="card-header1">QR Code Generator</div>
+                        <div class="card-body1">
+                            <p>A versatile QR code generator tool that allows users to create and download QR codes for
+                                a variety of applications, including social media, product links, and contact
+                                information. Built with JavaScript for dynamic generation.</p>
+                            <a href="https://shivamdhotre.github.io/QR-Code-Generator/" target="_blank">View Project</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="card1" data-card-id="3">
+                        <div class="card-header1">YouTube Spam Detection</div>
+                        <div class="card-body1">
+                            <p>A system designed to detect and remove spam content from YouTube, employing machine
+                                learning techniques to identify fake accounts, irrelevant comments, and other forms of
+                                spam. Improves the user experience by filtering out unwanted content.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="card1" data-card-id="4">
+                        <div class="card-header1">Netflix Clone on Kubernetes</div>
+                        <div class="card-body1">
+                            <p>A cloud-native project that replicates Netflix's architecture using Kubernetes.
+                                Microservices are containerized with Docker and orchestrated using Kubernetes for media
+                                streaming, recommendations, user authentication, and content cataloging. Demonstrates
+                                scalable and resilient application deployment.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="card1" data-card-id="5">
+                        <div class="card-header1">Telegram Chatbot</div>
+                        <div class="card-body1">
+                            <p>An automated Telegram chatbot built using Python and NLP libraries. Leverages AI to
+                                understand user commands and provide relevant responses. Suitable for customer service,
+                                information retrieval, and other interactive applications.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="card1" data-card-id="6">
+                        <div class="card-header1">Age and Gender Detection</div>
+                        <div class="card-body1">
+                            <p>A system for estimating a person's age and identifying their gender from facial images.
+                                Implemented using Python, OpenCV, and machine learning algorithms. Demonstrates
+                                proficiency in computer vision and pattern recognition.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Skills Section -->
+    <section id="Skills" class="skills-section">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="skill-item">
+                        <h6>Docker</h6>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90" style="--skill-width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <h6>Kubernetes</h6>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85" style="--skill-width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <h6>Jenkins</h6>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80" style="--skill-width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <h6>AWS</h6>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75" style="--skill-width: 75%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="skill-item">
+                        <h6>Python</h6>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="95" style="--skill-width: 95%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <h6>Terraform</h6>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80" style="--skill-width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <h6>Linux</h6>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90" style="--skill-width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <h6>Bash Scripting</h6>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85" style="--skill-width: 85%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="Work-Experience" class="py-5">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-briefcase"></i> Work Experience
+            </h2>
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Software Developer Intern</h3>
+                    <h4 class="card-subtitle mb-2 text-muted">AI Dyma Private Limited</h4>
+                    <p class="card-text">(Oct 2024 - Nov 2024)</p>
+                    <p class="card-text">Familiar with AWS services, Docker, and Kubernetes, working within a CI/CD
+                        pipeline. Contributed to user interface development under team leadership, deploying on AWS.
+                        Assisted with website flyer creation and design using Canva and Figma.</p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><span class="badge bg-secondary">AWS</span></li>
+                        <li class="list-inline-item"><span class="badge bg-secondary">Docker</span></li>
+                        <li class="list-inline-item"><span class="badge bg-secondary">Kubernetes</span></li>
+                        <li class="list-inline-item"><span class="badge bg-secondary">CI/CD</span></li>
+                        <li class="list-inline-item"><span class="badge bg-secondary">UI Development</span></li>
+                        <li class="list-inline-item"><span class="badge bg-secondary">Canva</span></li>
+                        <li class="list-inline-item"><span class="badge bg-secondary">Figma</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="Education" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">BTECH/BE-IT</h3>
+                            <h4 class="card-subtitle mb-2 text-muted">Ramrao Adik Institute of Technology</h4>
+                            <p class="card-text">Bachelor of Engineering - BE, Information Technology · (January 2021 -
+                                May 2024)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">HSC</h3>
+                            <h4 class="card-subtitle mb-2 text-muted">Patkar Varde Junior College</h4>
+                            <p class="card-text">HSC - Science [PCMB] · (June 2018 - May 2020)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="Contact">
+        <h1 class="section-title">Get In Touch</h1>
+        <div class="contact-wrapper">
+            <!-- Contact Form -->
+            <form id="contactForm" action="https://formspree.io/f/xvgalken" class="form-horizontal" role="form"
+                method="post" novalidate>
+                <div id="form-message" aria-live="polite"></div>
+                <div class="form-group">
+                    <label for="name" class="col-form-label">Your Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter your name" name="name" required
+                        aria-required="true" />
+                </div>
+                <div class="form-group">
+                    <label for="email" class="col-form-label">Your Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter your email" name="email"
+                        required aria-required="true" />
+                </div>
+                <div class="form-group">
+                    <label for="message" class="col-form-label">Your Message</label>
+                    <textarea class="form-control" rows="5" id="message" placeholder="Enter your message" name="message"
+                        required aria-required="true"></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </div>
+            </form>
+
+            <!-- Contact Information -->
+            <div class="direct-contact-container">
+                <ul class="contact-list">
+                    <li class="list-item">
+                        <i class="fa fa-map-marker fa-lg"></i>
+                        <span class="contact-text place">Mumbai, Maharashtra</span>
+                    </li>
+
+                    <li class="list-item">
+                        <i class="fa fa-phone fa-lg"></i>
+                        <span class="contact-text phone">
+                            <a href="tel:+2125552368" title="Call us">(212) 555-2368</a>
+                        </span>
+                    </li>
+                    <li class="list-item">
+                        <i class="fa fa-envelope fa-lg"></i>
+                        <span class="contact-text gmail">
+                            <a href="mailto:shivamdhotre07@gmail.com"
+                                title="Send us an email">shivamdhotre07@gmail.com</a>
+                        </span>
+                    </li>
+                    <li class="list-item">
+                        <i class="fa-solid fa-user"></i>
+                        <span class="contact-text name"> </span>
+                        <a href="assets/Shivam Dhotre.pdf" title="Get to know me">Download Resume</a>
+                        </span>
+                    </li>
+                </ul>
+
+                <hr>
+                <ul class="social-media-list">
+                    <li>
+                        <a href="https://github.com/Shivadhotre" target="_blank" class="contact-icon"
+                            aria-label="GitHub">
+                            <i class="fab fa-github" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/shivam-dhotre-83774a210/" target="_blank"
+                            class="contact-icon" aria-label="linkedin">
+                            <i class="fab fa-linkedin" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/" target="_blank" class="contact-icon"
+                            aria-label="instagram">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://x.com/?lang=en-in" target="_blank" class="contact-icon" aria-label="Twitter">
+                            <i class="fab fa-twitter" aria-hidden="true"></i>
+                        </a>
+                    </li>
+
+                </ul>
+                <hr />
+            </div>
+        </div>
+    </section>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <script>
+        // project card js part
+        document.addEventListener('DOMContentLoaded', function () {
+            const cards1 = document.querySelectorAll('.card1');
+
+            cards1.forEach(card => {
+                const header = card.querySelector('.card-header1');
+
+                header.addEventListener('click', function () {
+                    cards1.forEach(otherCard => {
+                        if (otherCard !== card) {
+                            otherCard.classList.remove('active');
+                        }
+                    });
+                    card.classList.toggle('active');
+                });
+            });
+        });
+        // Typed.js animation
+        var typed = new Typed('#typed-role', {
+            strings: ['Enthusiastic DevOps Engineer', ' Front-End Developer', 'UI/UX Designer'],
+            typeSpeed: 50,
+            loop: true,
+            loopCount: Infinity,
+        });
+
+
+
+        // Skill bar animation when scrolled into view
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+            );
+        }
+
+        function animateSkills() {
+            document.querySelectorAll('.skill-progress').forEach(skillProgress => {
+                if (isInViewport(skillProgress) && !skillProgress.classList.contains('animated')) {
+                    const width = skillProgress.getAttribute('data-width');
+                    skillProgress.style.width = width + '%';
+                    skillProgress.classList.add('animated');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', animateSkills);
+        window.addEventListener('load', animateSkills);
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const form = this;
+            const formData = new FormData(form);
+            const messageBox = document.getElementById('form-message');
+            messageBox.innerHTML = ''; // Clear previous messages
+
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'  // Specify that we expect JSON
+                }
+            })
+                .then(response => {
+                    if (response.ok) {
+                        // Successful submission
+                        form.reset(); // Clear the form
+                        messageBox.innerHTML = '<div class="alert alert-success" role="alert">Thank you for your message!</div>';
+                    } else {
+                        // Handle errors from Formspree
+                        response.json().then(data => {
+                            if (data.errors) {
+                                // Display Formspree's error messages
+                                const errorMessages = data.errors.map(error => error.message).join('<br>');  //join errors with line breaks
+                                messageBox.innerHTML = `<div class="alert alert-danger" role="alert">${errorMessages}</div>`;
+                            } else {
+                                // Generic error message if Formspree doesn't provide specific errors
+                                messageBox.innerHTML = '<div class="alert alert-danger" role="alert">Oops! There was a problem submitting your form.  Please try again later.</div>';
+                            }
+                        }).catch(() => {
+                            // Error parsing JSON from Formspree (rare, but handle it)
+                            messageBox.innerHTML = '<div class="alert alert-danger" role="alert">Oops! An unexpected error occurred. Please try again later.</div>';
+                        });
+                    }
+                })
+                .catch(() => {
+                    // Network error or other issue with the fetch
+                    messageBox.innerHTML = '<div class="alert alert-danger" role="alert">Oops! A network error occurred. Please check your internet connection and try again.</div>';
+                });
+        });
+    </script>
+</body>
+<!-- Footer -->
+<footer>
+    &copy; 2025 Shivam Dhotre | <a href="#">Privacy Policy</a>
+</footer>
+
+</html>
